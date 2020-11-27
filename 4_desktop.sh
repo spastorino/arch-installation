@@ -45,6 +45,12 @@ cp -a .tmux* ~/
 cp -a .vim* ~/
 cp -a .wallpapers ~/
 
+# Install gnome extensions
+
+# Download ...
+# https://github.com/bonzini/gnome-shell-permanent-notification
+# removeaudiodeviceselectiondialog@antoinerichermoz.gmail.com
+# Decompress ~/.local/share/gnome-shell/extensions
 
 # Gsettings
 
