@@ -58,6 +58,12 @@ makepkg -sir
 git clean -xdf
 popd
 
+git clone https://aur.archlinux.org/git-imerge-git.git
+pushd git-imerge-git
+makepkg -sir
+git clean -xdf
+popd
+
 git clone https://aur.archlinux.org/hotspot.git
 pushd hotspot
 makepkg -sir
