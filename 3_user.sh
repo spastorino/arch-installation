@@ -24,6 +24,7 @@ cargo install cargo-binutils
 cargo install cargo-check
 cargo install cargo-clone
 cargo install cargo-count
+cargo install cargo-crev
 cargo install cargo-deadlinks
 cargo install cargo-edit
 cargo install cargo-expand
