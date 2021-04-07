@@ -125,6 +125,7 @@ pacman -S deja-dup
 pacman -S fwupd
 pacman -S efibootmgr
 pacman -S udftools
+pacman -S syncthing-gtk
 
 # Install utilities
 pacman -S aspell
