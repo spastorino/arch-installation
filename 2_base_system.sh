@@ -220,6 +220,8 @@ pacman -S vym
 pacman -S w3m
 pacman -S wavemon
 pacman -S wl-clipboard
+# Allow Firefox screensharing on wayland
+pacman -S xdg-desktop-portal-wlr
 pacman -S xournalpp
 
 sed -i '/^#user_allow_other/s/^#//' /etc/fuse.conf
