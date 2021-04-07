@@ -52,6 +52,12 @@ makepkg -sir
 git clean -xdf
 popd
 
+git clone https://aur.archlinux.org/glmark2.git
+pushd glmark2
+makepkg -sir
+git clean -xdf
+popd
+
 git clone https://aur.archlinux.org/gnome-shell-pomodoro.git
 pushd gnome-shell-pomodoro
 makepkg -sir
