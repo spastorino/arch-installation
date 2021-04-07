@@ -56,3 +56,9 @@ cp -a $BACKUP/.ssh ~/
 git clone git@github.com:spastorino/vinimum.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 vim +PlugInstall +UpdateRemotePlugins +qa
+
+# Chromium Wayland support
+cat <<EOT >> ~/.config/chromium-flags.conf
+--enable-features=UseOzonePlatform
+--ozone-platform=wayland
+EOT
