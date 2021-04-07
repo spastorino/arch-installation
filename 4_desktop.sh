@@ -48,7 +48,7 @@ cp -a .wallpapers ~/
 # Install gnome extensions
 
 # Download ...
-# https://github.com/bonzini/gnome-shell-permanent-notification
+# https://github.com/bonzini/gnome-shell-permanent-notifications
 # Decompress ~/.local/share/gnome-shell/extensions
 
 # Gsettings
