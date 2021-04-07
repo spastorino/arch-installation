@@ -49,7 +49,6 @@ cp -a .wallpapers ~/
 
 # Download ...
 # https://github.com/bonzini/gnome-shell-permanent-notification
-# removeaudiodeviceselectiondialog@antoinerichermoz.gmail.com
 # Decompress ~/.local/share/gnome-shell/extensions
 
 # Gsettings
