@@ -48,8 +48,8 @@ cp -a .wallpapers ~/
 # Install gnome extensions
 
 # Download ...
-# https://github.com/bonzini/gnome-shell-permanent-notifications
-# Decompress ~/.local/share/gnome-shell/extensions
+# autoselectheadset@josephlbarnett.github.com
+# Decompress to ~/.local/share/gnome-shell/extensions/autoselectheadset@josephlbarnett.github.com
 
 # Gsettings
 
