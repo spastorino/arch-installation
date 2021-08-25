@@ -202,6 +202,7 @@ pacman -S hyperfine
 pacman -S jdk11-openjdk
 pacman -S kcachegrind
 pacman -S keybase
+pacman -S ldns
 pacman -S mplayer
 pacman -S nfs-utils
 pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
