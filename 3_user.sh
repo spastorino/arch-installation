@@ -3,15 +3,15 @@
 # Install Rust stable, beta and nightly versions
 rustup install stable
 rustup default stable
-rustup component add llvm-tools-preview rls rust-analysis rust-src rustc-dev rustc-docs
+rustup component add llvm-tools-preview rust-analysis rust-src rustc-dev # rustc-docs
 
 rustup install beta
 rustup default beta
-rustup component add llvm-tools-preview rls rust-analysis rust-src rustc-dev rustc-docs
+rustup component add llvm-tools-preview rust-analysis rust-src rustc-dev # rustc-docs
 
 rustup install nightly
 rustup default nightly
-rustup component add llvm-tools-preview miri rls rust-analysis rust-analyzer-preview rust-src rustc-dev rustc-docs
+rustup component add llvm-tools-preview miri rust-analysis rust-analyzer-preview rust-src rustc-dev # rustc-docs
 rustup target install i686-unknown-linux-gnu
 
 # Install cargo packages
