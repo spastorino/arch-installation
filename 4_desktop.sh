@@ -23,6 +23,13 @@ echo -e "pair EC:66:BD:17:10:8D\nconnect EC:66:BD:17:10:8D\n" | bluetoothctl
 # This won't work because pin is needed after pairing. Insert pin + enter on bluetooth keyboard
 echo -e "pair 34:88:5D:72:98:71\nconnect 34:88:5D:72:98:71\n" | bluetoothctl
 
+# FIXME: automate this
+# Run pavucontrol
+# Mute mic from camera
+# Mute regular mic
+# Set blue mic as fallback
+#pavucontrol
+
 # Screencasts
 pacman -S obs-studio
 
