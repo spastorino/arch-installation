@@ -160,6 +160,7 @@ pacman -S hunspell
 pacman -S imagemagick
 pacman -S iotop
 pacman -S linux-headers
+pacman -S lynx
 pacman -S lshw
 pacman -S lsof
 pacman -S mtr
