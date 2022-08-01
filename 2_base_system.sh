@@ -86,6 +86,7 @@ pacman -S tmate
 pacman -S tmux
 pacman -S valgrind
 pacman -S vim
+pacman -S wmctrl
 
 # Instal Gnome
 pacman -S gnome gnome-extra
