@@ -49,6 +49,10 @@ cargo install cargo-watch
 cargo install git-absorb
 cargo install sccache
 
+# For rustc-perf
+cargo install rustup-toolchain-install-master
+cargo install rustfilt
+
 # Recover ssh keys
 cp -a $BACKUP/.ssh ~/
 
