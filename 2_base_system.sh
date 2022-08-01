@@ -234,6 +234,14 @@ cat <<EOT > /etc/udev/rules.d/99-logitech-webcam.rules
 SUBSYSTEM=="video4linux", KERNEL=="video[0-9]*", ATTRS{product}=="Logi Webcam C920e", ATTR{index}=="0", RUN+="/usr/bin/v4l2-ctl -d $devnode -c focus_auto=0"
 EOT
 
+# Firefox nightly repo
+cat <<EOT >> /etc/pacman.conf
+
+[heftig]
+SigLevel = Optional
+Server = https://pkgbuild.com/~heftig/repo/\$arch
+EOT
+
 # Namecheap dyndns
 pacman -S ddclient
 echo "Namecheap dyndns password: "
