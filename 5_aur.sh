@@ -33,13 +33,6 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/firefox-nightly.git
-pushd firefox-nightly
-gpg --recv-key 0x61B7B526D98F0353
-makepkg -sir
-git clean -xdf
-popd
-
 git clone https://aur.archlinux.org/flamegraph.git
 pushd flamegraph
 makepkg -sir
@@ -52,20 +45,26 @@ makepkg -sir
 git clean -xdf
 popd
 
+git clone https://aur.archlinux.org/git-imerge-git.git
+pushd git-imerge-git
+makepkg -sir
+git clean -xdf
+popd
+
 git clone https://aur.archlinux.org/glmark2.git
 pushd glmark2
 makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/gnome-shell-pomodoro.git
-pushd gnome-shell-pomodoro
+git clone https://aur.archlinux.org/gnome-shell-extension-system76-power-git.git
+pushd gnome-shell-extension-system76-power-git
 makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/git-imerge-git.git
-pushd git-imerge-git
+git clone https://aur.archlinux.org/gnome-shell-pomodoro.git
+pushd gnome-shell-pomodoro
 makepkg -sir
 git clean -xdf
 popd
@@ -102,6 +101,12 @@ popd
 
 git clone https://aur.archlinux.org/stremio.git
 pushd stremio
+makepkg -sir
+git clean -xdf
+popd
+
+git clone https://aur.archlinux.org/teams.git
+pushd teams
 makepkg -sir
 git clean -xdf
 popd
@@ -163,12 +168,6 @@ pushd system76-power
 makepkg -sir
 systemctl enable system76-power.service
 systemctl start system76-power.service
-git clean -xdf
-popd
-
-git clone https://aur.archlinux.org/gnome-shell-extension-system76-power-git.git
-pushd gnome-shell-extension-system76-power-git
-makepkg -sir
 git clean -xdf
 popd
 
