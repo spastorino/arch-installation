@@ -69,6 +69,13 @@ makepkg -sir
 git clean -xdf
 popd
 
+# Dependency of hotspot
+git clone https://aur.archlinux.org/rustc-demangle.git
+pushd rustc-demangle
+makepkg -sir
+git clean -xdf
+popd
+
 git clone https://aur.archlinux.org/hotspot.git
 pushd hotspot
 makepkg -sir
