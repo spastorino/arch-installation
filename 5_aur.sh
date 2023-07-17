@@ -142,8 +142,8 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/system76-firmware-daemon.git
-pushd system76-firmware-daemon
+git clone https://aur.archlinux.org/system76-firmware-daemon-git.git
+pushd system76-firmware-daemon-git
 makepkg -sir
 systemctl enable system76-firmware-daemon.service
 systemctl start system76-firmware-daemon.service
