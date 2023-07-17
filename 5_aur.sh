@@ -173,8 +173,8 @@ popd
 git clone https://aur.archlinux.org/system76-power.git
 pushd system76-power
 makepkg -sir
-systemctl enable system76-power.service
-systemctl start system76-power.service
+systemctl enable com.system76.PowerDaemon.service
+systemctl start com.system76.PowerDaemon.service
 git clean -xdf
 popd
 
