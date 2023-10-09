@@ -112,6 +112,9 @@ gsettings set org.gtk.Settings.FileChooser clock-format '12h'
 # set profile picture
 gsettings set org.gnome.desktop.sound event-sounds false
 
+# block blue light at night
+gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 1000
+
 # Terminal
 gsettings set org.gnome.Terminal.Legacy.Settings new-terminal-mode 'tab'
 gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'dark'
