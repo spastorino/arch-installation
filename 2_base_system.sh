@@ -133,6 +133,7 @@ pacman -S aspell
 pacman -S aspell-es
 pacman -S aspell-en
 pacman -S keepassxc
+pacman -S meld
 pacman -S xdg-utils
 pacman -S youtube-dl
 
