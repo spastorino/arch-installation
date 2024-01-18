@@ -1,0 +1,8 @@
+[Unit]
+Description=System76 Camera Off
+
+[Service]
+ExecStart=/usr/bin/system76-cameraoff
+
+[Install]
+WantedBy=multi-user.target
