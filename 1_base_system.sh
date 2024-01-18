@@ -1,112 +1,112 @@
 #!/bin/sh
 
-# This is the main OS basic installation script.
+# This is the main Arch Linux basic installation script.
 #
 # Run this script as root as soon as ArchLinux installation boots.
-#
-# FIXME: Most of the things like wifi, disks, etc are hardcoded for my System76 Galago Pro laptop.
-# In any case, feel free to use this script as a guide to setup your computer.
 
-# Configure Wi-Fi
-echo -n "WiFi network: "
-read ESSID
-echo -n "WiFi password:"
-read -s WIFI_PASS
+######################
+# Prepare
+######################
+
+## Connect to the internet
+
+echo "WiFi network?"
+read ssid
+echo "WiFi password?"
+read -s wifi_passwd
 echo
+iwctl --passphrase $wifi_passwd station wlan0 connect $ssid
 
-cat <<EOT > /etc/netctl/wlp0s20f3
-Description='wlp0s20f3 WiFi'
-Interface=wlp0s20f3
-Connection=wireless
-Security=wpa
-ESSID='$ESSID'
-IP=dhcp
-Key='$WIFI_PASS'
-EOT
+## Update the system clock
 
-netctl start wlp0s20f3
-
-# Enable network time synchronization
 timedatectl set-ntp true
 
-echo "Swap size (e.g. 8GiB):"
-read SWAP_SIZE
-# Partition and format disk
-cat <<EOT | parted -a optimal ---pretend-input-tty /dev/nvme0n1
-	mklabel gpt
-        yes
-	mkpart ESP fat32 1MiB 513MiB
-	set 1 boot on
-	mkpart primary ext4 513MiB 100%
-	resizepart 2 -$SWAP_SIZE
-        yes
-	mkpart primary linux-swap -$SWAP_SIZE 100%
-	quit
-EOT
-mkfs.fat -F32 /dev/nvme0n1p1
-mkfs.ext4 /dev/nvme0n1p2
-mkswap /dev/nvme0n1p3
-swapon /dev/nvme0n1p3
+## Partition the disks
 
-# Mount root and boot
-mount /dev/nvme0n1p2 /mnt
-mkdir -p /mnt/boot
-mount /dev/nvme0n1p1 /mnt/boot
+# Detect and list the drives.
+lsblk -f
 
-# Install base and base-devel
-pacstrap /mnt base base-devel
+# Choice the drive to use :
+echo "Drive? (for instance /dev/nvme0n1)"
+read drive_name
 
-# Generate fstab
-genfstab -U /mnt > /mnt/etc/fstab
+(
+echo g       # Create new GPT partition table
+echo n       # Create new partition (for EFI).
+echo         # Set default partition number.
+echo         # Set default first sector.
+echo +1G     # Set +1G as last sector.
+echo n       # Create new partition (for root).
+echo         # Set default partition number.
+echo         # Set default first sector.
+echo         # Set last sector.
+echo t       # Change partition type.
+echo 1       # Pick first partition.
+echo 1       # Change first partition to EFI system.
+echo w       # write changes. 
+) | fdisk $drive_name -w always -W always
 
-# Chroot into new system
-arch-chroot /mnt
+efi_name=$drive_name
+root_name=$drive_name
+if [[ "$drive_name" == "/dev/nvme"* || "$drive_name" == "/dev/mmcblk0"* ]]; then
+  efi_name+=p1
+  root_name+=p2
+else
+  efi_name+=1
+  root_name+=2
+fi
 
-# Configure timezone
-ln -sf /usr/share/zoneinfo/America/Montevideo /etc/localtime
-hwclock --systohc
+## Format the partitions
 
-# Generate en_US.UTF-8 locales
-sed -i '/^#en_US.UTF-8/s/^#//' /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+# Create EFI partition
+mkfs.fat -F32 -n EFI $efi_name
+# Encrypt the root partition
+cryptsetup -v luksFormat $root_name
+# Open the encrypted root partition
+cryptsetup luksOpen $root_name cryptdata
 
-# Configure hostname
-echo "archlinux" > /etc/hostname
-cat <<EOT >> /etc/hosts
-127.0.0.1	localhost
-::1		localhost
-127.0.1.1	archlinux.localdomain	archlinux
-EOT
+echo "Swap size (e.g. 8G):"
+read swap_size
 
-# Set root password
-passwd
+pvcreate /dev/mapper/cryptdata
+vgcreate lvm /dev/mapper/cryptdata
+lvcreate -L $swap_size -n swap lvm
+lvcreate -l '100%FREE' -n root lvm
+cryptsetup config $root_name --label luks
 
-# Install intel micro code
-pacman -S intel-ucode
-pacman -S iucode-tool
+mkswap /dev/lvm/swap
+mkfs.ext4 /dev/mapper/lvm-root
 
-# Install systemd-boot EFI boot manager
-bootctl install
+# Mount the file systems
 
-# Generate boot entries
-cat <<EOT > /boot/loader/entries/arch.conf
-title	Arch Linux
-linux	/vmlinuz-linux
-initrd	/intel-ucode.img
-initrd	/initramfs-linux.img
-options	root=/dev/nvme0n1p2 rw ec_sys.write_support=1
-EOT
-echo "default arch" > /boot/loader/loader.conf
+mount /dev/mapper/lvm-root /mnt
+mount --mkdir $efi_name -o uid=0,gid=0,fmask=0077,dmask=0077 /mnt/boot
+swapon /dev/mapper/lvm-swap
 
-# Install wifi packages
-pacman -S iw wpa_supplicant crda
+######################
+# Install
+# ####################
 
-# Exit chroot
-exit
+# Install essential packages
 
-# Umount all mounted filesystems
-umount -R /mnt
+pacstrap -K /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware 
+# userspace utilities for file systems
+pacstrap /mnt btrfs-progs dosfstools exfatprogs e2fsprogs ntfs-3g udftools
+# utilities for accessing and managing LVM
+pacstrap /mnt lvm2
+# software necessary for networking
+pacstrap /mnt iwd
+# text editor
+pacstrap /mnt vim
+# packages for accessing documentation in man and info pages
+pacstrap /mnt man-db man-pages
 
-# Reboot
-reboot
+######################
+# Configure
+# ####################
+
+## Generate fstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+## Chroot into new system
+arch-chroot /mnt sh 2_setup.sh $root_name
