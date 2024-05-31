@@ -120,6 +120,22 @@ wifi.backend=iwd
 wifi.iwd.autoconnect=yes
 EOT
 
+cat <<EOT >> /etc/NetworkManager/dispatcher.d/99-wlan
+#!/bin/bash
+wired_interfaces="en.*|eth.*"
+if [[ "$1" =~ $wired_interfaces ]]; then
+    case "$2" in
+        up)
+            nmcli radio wifi off
+            ;;
+        down)
+            nmcli radio wifi on
+            ;;
+    esac
+fi
+EOT
+chmod +x /etc/NetworkManager/dispatcher.d/99-wlan
+
 pacman_install xorg-xrandr
 # Bluetooth
 pacman_install bluez bluez-utils bluez-tools
