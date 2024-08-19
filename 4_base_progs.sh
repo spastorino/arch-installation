@@ -114,6 +114,7 @@ systemctl enable gdm.service
 systemclt disable wpa_supplicant
 systemclt stop wpa_supplicant
 
+# Check this https://wiki.archlinux.org/title/NetworkManager#Using_iwd_as_the_Wi-Fi_backend
 cat <<EOT >> /etc/NetworkManager/NetworkManager.conf
 [device]
 wifi.backend=iwd
