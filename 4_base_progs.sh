@@ -291,6 +291,7 @@ pacman_install nano
 pacman_install nautilus-sendto
 pacman_install neovim
 pacman_install pacman-contrib
+pacman_install pinta
 pacman_install racket
 pacman_install rednotebook
 pacman_install reflector
