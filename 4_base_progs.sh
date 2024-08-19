@@ -274,6 +274,7 @@ pacman_install dialog
 pacman_install docker-compose
 pacman_install github-cli
 pacman_install glmark2
+pacman_install flameshot
 pacman_install foliate
 pacman_install gnome-nettool
 pacman_install gnome-screenshot
