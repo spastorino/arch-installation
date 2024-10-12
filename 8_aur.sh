@@ -93,6 +93,12 @@ makepkg -sir
 git clean -xdf
 popd
 
+git clone https://aur.archlinux.org/servo-latest.git
+pushd servo-latest
+makepkg -sir
+git clean -xdf
+popd
+
 git clone https://aur.archlinux.org/spotify.git
 pushd spotify
 makepkg -sir
