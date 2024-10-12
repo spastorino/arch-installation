@@ -204,6 +204,7 @@ pacman_install net-tools
 pacman_install nload
 pacman_install p7zip
 #pacman_install python-pydbus
+pacman_install qrencode
 pacman_install rsync
 pacman_install tree
 pacman_install traceroute
