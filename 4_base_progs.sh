@@ -309,6 +309,7 @@ pacman_install typescript
 pacman_install usbutils
 pacman_install wtype
 pacman_install xfsprogs
+pacman_install zed
 
 pacman_install erlang
 pacman_install geoip
