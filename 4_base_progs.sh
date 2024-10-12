@@ -192,6 +192,7 @@ pacman_install htop
 pacman_install hunspell
 pacman_install imagemagick
 pacman_install iotop
+pacman_install inotify-tools
 pacman_install lynx
 pacman_install lshw
 pacman_install lsof
