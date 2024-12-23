@@ -135,8 +135,8 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/system76-dkms.git
-pushd system76-dkms
+git clone https://aur.archlinux.org/system76-dkms-git.git
+pushd system76-dkms-git
 makepkg -sir
 git clean -xdf
 popd
