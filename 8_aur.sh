@@ -141,14 +141,6 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/system76-firmware-daemon-git.git
-pushd system76-firmware-daemon-git
-makepkg -sir
-systemctl enable system76-firmware-daemon.service
-systemctl start system76-firmware-daemon.service
-git clean -xdf
-popd
-
 git clone https://aur.archlinux.org/system76-acpi-dkms.git
 pushd system76-acpi-dkms
 makepkg -sir
@@ -160,12 +152,6 @@ pushd system76-driver
 makepkg -sir
 systemctl enable system76.service
 systemctl start system76.service
-git clean -xdf
-popd
-
-git clone https://aur.archlinux.org/firmware-manager-git.git
-pushd firmware-manager-git
-makepkg -sir
 git clean -xdf
 popd
 
