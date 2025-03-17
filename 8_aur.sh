@@ -87,12 +87,6 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/quilter.git
-pushd quilter
-makepkg -sir
-git clean -xdf
-popd
-
 git clone https://aur.archlinux.org/servo-latest.git
 pushd servo-latest
 makepkg -sir
@@ -113,12 +107,6 @@ popd
 
 git clone https://aur.archlinux.org/teams.git
 pushd teams
-makepkg -sir
-git clean -xdf
-popd
-
-git clone https://aur.archlinux.org/typora.git
-pushd typora
 makepkg -sir
 git clean -xdf
 popd
