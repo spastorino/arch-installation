@@ -273,6 +273,9 @@ pacman_install ddclient
 pacman_install system76-firmware
 pacman_install system76-scheduler
 
+# LLMs
+pacman_install ollama
+
 pacman_install arch-wiki-docs
 pacman_install dhcpcd
 pacman_install dhcping
