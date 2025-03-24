@@ -88,7 +88,7 @@ pacman_install graphviz
 pacman_install jq
 pacman_install linux-tools
 pacman_install mosh
-pacman_install nodejs npm
+pacman_install nvm nodejs npm
 pacman_install openssh
 pacman_install xorg-xauth
 pacman_install python

@@ -81,12 +81,6 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/nvm.git
-pushd nvm
-makepkg -sir
-git clean -xdf
-popd
-
 git clone https://aur.archlinux.org/servo-latest.git
 pushd servo-latest
 makepkg -sir
