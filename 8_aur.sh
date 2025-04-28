@@ -51,12 +51,6 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/green-recorder.git
-pushd green-recorder
-makepkg -sir
-git clean -xdf
-popd
-
 # Dependencies of hotspot
 git clone https://aur.archlinux.org/rustc-demangle.git
 pushd rustc-demangle
