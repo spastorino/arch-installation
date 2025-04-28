@@ -51,12 +51,6 @@ makepkg -sir
 git clean -xdf
 popd
 
-# git clone https://aur.archlinux.org/gnome-shell-pomodoro.git
-# pushd gnome-shell-pomodoro
-# makepkg -sir
-# git clean -xdf
-# popd
-
 git clone https://aur.archlinux.org/green-recorder.git
 pushd green-recorder
 makepkg -sir
