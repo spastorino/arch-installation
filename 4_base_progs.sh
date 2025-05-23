@@ -128,6 +128,7 @@ if [[ "$1" =~ $wired_interfaces ]]; then
     case "$2" in
         up)
             nmcli radio wifi off
+            bluetoothctl power off
             ;;
         down)
             nmcli radio wifi on
