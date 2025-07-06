@@ -54,6 +54,10 @@ gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 gsettings set org.gnome.nautilus.preferences show-hidden-files true
 gsettings set org.gnome.nautilus.preferences default-sort-order name
 
+# Automount off
+gsettings set org.gnome.desktop.media-handling automount false
+gsettings set org.gnome.desktop.media-handling automount-open false
+
 # GWeather
 gsettings set org.gnome.GWeather4 temperature-unit 'centigrade'
 

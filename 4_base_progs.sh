@@ -290,6 +290,7 @@ pacman_install gnome-nettool
 pacman_install gnome-screenshot
 pacman_install gnome-themes-extra
 pacman_install gnome-usage
+pacman_install hyprland
 pacman_install inetutils
 pacman_install iw
 pacman_install jfsutils
