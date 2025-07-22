@@ -77,6 +77,7 @@ pacman_install cloc
 pacman_install cmake
 pacman_install code
 pacman_install ctags
+pacman_install diffstat
 pacman_install lib32-gcc-libs
 pacman_install docker
 pacman_install emacs
