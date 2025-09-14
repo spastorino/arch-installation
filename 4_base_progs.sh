@@ -186,6 +186,7 @@ pacman_install bat
 pacman_install cups cups-pdf
 systemctl enable cups.service
 systemctl start cups.service
+pacman_install dfu-util
 pacman_install ethtool
 pacman_install eza
 pacman_install fd
