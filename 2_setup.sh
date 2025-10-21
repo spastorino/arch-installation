@@ -79,6 +79,16 @@ echo "options cryptdevice=$root_name:cryptdata root=/dev/mapper/lvm-root rw" >> 
 
 echo "default arch" >> /boot/loader/loader.conf
 
+# Install secure boot
+pacman -S sbctl
+sbctl create-keys
+chattr -i /sys/firmware/efi/efivars/{PK,KEK,db}*
+sbctl enroll-keys -m
+sbctl sign -s /boot/vmlinuz-linux
+sbctl sign -s /boot/vmlinuz-linux-lts
+sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
+sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi
+
 ## Reboot
 
 echo "Run the following commands:"
