@@ -189,6 +189,8 @@ pacman_install dfu-util
 pacman_install ethtool
 pacman_install eza
 pacman_install fd
+pacman_install flamelens
+pacman_install inferno
 pacman_install gptfdisk
 pacman_install htop
 pacman_install hunspell
