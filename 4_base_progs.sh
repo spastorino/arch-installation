@@ -246,7 +246,7 @@ pacman_install keybase
 pacman_install ldns
 pacman_install massif-visualizer
 pacman_install nfs-utils
-pacman_install noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+pacman_install noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nerd-fonts
 pacman_install pavucontrol
 pacman_install postgresql
 pacman_install powerline-fonts
