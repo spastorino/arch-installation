@@ -103,6 +103,7 @@ pacman_install strace
 pacman_install time
 pacman_install tmate
 pacman_install tmux
+pacman_install tree-sitter-cli
 pacman_install valgrind
 pacman_install wmctrl
 
