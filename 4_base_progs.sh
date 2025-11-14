@@ -71,6 +71,7 @@ systemctl enable acpid.service
 systemctl start acpid.service
 
 # Install development packages
+pacman_install ast-grep
 pacman_install ccache
 pacman_install clang
 pacman_install cloc
