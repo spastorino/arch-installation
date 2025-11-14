@@ -83,7 +83,7 @@ pacman_install docker
 pacman_install emacs
 pacman_install fzf
 pacman_install gdb
-pacman_install git
+pacman_install git lazygit
 pacman_install go
 pacman_install graphviz
 pacman_install jq
