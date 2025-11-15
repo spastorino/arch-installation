@@ -5,6 +5,7 @@ read backup_dir
 
 # Copy backup files
 pushd $backup_dir
+cp -a .config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 cp -a .bash_history ~/
 cp -a .bash_profile ~/
 cp -a .bashrc ~/
