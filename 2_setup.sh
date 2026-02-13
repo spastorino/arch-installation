@@ -69,13 +69,13 @@ echo 'title Arch Linux' > /boot/loader/entries/arch.conf
 echo 'linux /vmlinuz-linux' >> /boot/loader/entries/arch.conf
 echo 'initrd /intel-ucode.img' >> /boot/loader/entries/arch.conf
 echo 'initrd /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-echo "options cryptdevice=$root_name:cryptdata root=/dev/mapper/lvm-root rw" >> /boot/loader/entries/arch.conf
+echo "options cryptdevice=$root_name:cryptdata lockdown=none root=/dev/mapper/lvm-root i915.enable_psr=0 rw" >> /boot/loader/entries/arch.conf
 
 echo 'title Arch Linux LTS' > /boot/loader/entries/arch-lts.conf
 echo 'linux /vmlinuz-linux-lts' >> /boot/loader/entries/arch-lts.conf
 echo 'initrd /intel-ucode.img' >> /boot/loader/entries/arch-lts.conf
 echo 'initrd /initramfs-linux-lts.img' >> /boot/loader/entries/arch-lts.conf
-echo "options cryptdevice=$root_name:cryptdata root=/dev/mapper/lvm-root rw" >> /boot/loader/entries/arch-lts.conf
+echo "options cryptdevice=$root_name:cryptdata lockdown=none root=/dev/mapper/lvm-root i915.enable_psr=0 rw" >> /boot/loader/entries/arch-lts.conf
 
 echo "default arch" >> /boot/loader/loader.conf
 

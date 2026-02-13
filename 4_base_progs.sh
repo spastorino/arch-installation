@@ -49,7 +49,7 @@ sed -i '/^#.*wheel ALL=(ALL:ALL) ALL/s/^# //' /etc/sudoers
 # Install intel video drivers
 pacman_install mesa vulkan-intel intel-media-driver onevpl-intel-gpu libva-utils
 cat <<EOT >> /etc/modprobe.d/i915.conf
-options i915 enable_guc=3 enable_fbc=1 fastboot=1
+options i915 enable_fbc=0
 EOT
 
 # Make console font bigger
