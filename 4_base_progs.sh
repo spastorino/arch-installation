@@ -185,6 +185,7 @@ pacman_install adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts
 pacman_install aspell aspell-es aspell-en
 pacman_install bash-completion
 pacman_install bat
+pacman_install bind
 pacman_install cups cups-pdf
 systemctl enable cups.service
 systemctl start cups.service
