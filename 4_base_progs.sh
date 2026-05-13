@@ -176,6 +176,13 @@ pacman_install ruby
 pacman_install ruby-irb
 pacman_install ruby-minitest
 
+# Haskell
+# The right answer is ghcup-hs-bin, but that's AUR
+pacman_install ghc
+pacman_install cabal-install
+pacman_install stack
+pacman_install haskell-language-server
+
 # Install system utilities
 pacman_install deja-dup
 pacman_install fwupd
