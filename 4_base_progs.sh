@@ -183,6 +183,11 @@ pacman_install cabal-install
 pacman_install stack
 pacman_install haskell-language-server
 
+# TOML, Markdown, Bash
+pacman_install taplo-cli
+pacman_install marksman
+pacman_install bash-language-server
+
 # Install system utilities
 pacman_install deja-dup
 pacman_install fwupd
