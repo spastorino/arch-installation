@@ -102,6 +102,7 @@ pacman_install python-virtualenv
 pacman_install ripgrep
 pacman_install rustup
 pacman_install strace
+pacman_install tar-scripts
 pacman_install time
 pacman_install tmate
 pacman_install tmux
