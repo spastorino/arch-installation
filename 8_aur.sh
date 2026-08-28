@@ -27,8 +27,8 @@ makepkg -sir
 git clean -xdf
 popd
 
-git clone https://aur.archlinux.org/stremio.git
-pushd stremio
+git clone https://aur.archlinux.org/stremio-linux-shell.git
+pushd stremio-linux-shell
 makepkg -sir
 git clean -xdf
 popd
